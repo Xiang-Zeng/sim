@@ -28,7 +28,7 @@ public:
     void ReadSim(StructuralInformationModel* sim);
     void ReadGeneralInfo(StructuralInformationModel* sim);
     void ReadStructuralInfo(StructuralInformationModel* sim);
-
+    void ReadLayout(StructuralInformationModel* sim);
 
 private:
     ifstream _fin;

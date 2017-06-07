@@ -9,6 +9,7 @@ class Cline
 {
 public:
     Cline();
+    Json::Value toJson();
 
     string name="";
     double location[2]={0,0};

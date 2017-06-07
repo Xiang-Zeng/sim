@@ -60,10 +60,38 @@ void SimFileReader::ReadStructuralInfo(StructuralInformationModel* sim)
     string s="";
     getline(fin,s);
     fin>>sim->si.type>>sim->si.units->length>>sim->si.units->force>>sim->si.units->temperature;
-
     fin.close();
+
+    ReadLayout(sim);
+
 }
 
+void SimFileReader::ReadLayout(StructuralInformationModel* sim)
+{
+    ifstream fin("floors.txt");
+    string s="";
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Floor floor;
+        fin>>floor.name>>floor.elevation;
+        if(floor.name!="")
+            sim->si.layout->floors.push_back(floor);
+    }
+    fin.close();
+
+    fin.open("clines.txt");
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Cline cline;
+        fin>>cline.name>>cline.location[0]>>cline.location[1];
+        if(cline.name!="")
+            sim->si.layout->clines.push_back(cline);
+    }
+    fin.close();
+
+}
 
 
 
