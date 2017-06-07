@@ -15,7 +15,17 @@ SOURCES += main.cpp \
     StructuralInformation.cpp \
     Layout.cpp \
     Property.cpp \
-    Geometry.cpp
+    Geometry.cpp \
+    Floor.cpp \
+    Cline.cpp \
+    LinearComponent.cpp \
+    Column.cpp \
+    Beam.cpp \
+    Segment.cpp \
+    Section.cpp \
+    FrameSection.cpp \
+    Rebar.cpp \
+    Material.cpp
 
 HEADERS += \
     json/allocator.h \
@@ -37,4 +47,14 @@ HEADERS += \
     StructuralInformation.h \
     Layout.h \
     Property.h \
-    Geometry.h
+    Geometry.h \
+    Floor.h \
+    Cline.h \
+    LinearComponent.h \
+    Column.h \
+    Beam.h \
+    Segment.h \
+    Section.h \
+    FrameSection.h \
+    Rebar.h \
+    Material.h
