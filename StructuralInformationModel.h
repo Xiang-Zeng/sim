@@ -13,8 +13,8 @@ public:
     Json::Value toJson();
     void WriteJson(string path);
 
-    GeneralInformation * gi;
-    StructuralInformation * si;
+    GeneralInformation  gi;
+    StructuralInformation  si;
 
 
 };

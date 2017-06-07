@@ -9,8 +9,8 @@ StructuralInformationModel::StructuralInformationModel()
 Json::Value StructuralInformationModel::toJson()
 {
     Json::Value jsim;
-    jsim["GeneralInformation"]=gi->toJson();
-    jsim["StructuralInformation"]=si->toJson();
+    jsim["GeneralInformation"]=gi.toJson();
+    jsim["StructuralInformation"]=si.toJson();
     return jsim;
 }
 

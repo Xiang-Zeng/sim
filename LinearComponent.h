@@ -13,8 +13,8 @@ class LinearComponent
 public:
     LinearComponent();
     string name="";
-    vector<Cline> clines;
-    vector<Floor> floors;
+    vector<Cline *> clines;
+    vector<Floor *> floors;
     vector<Segment> segments;
 };
 

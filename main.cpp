@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     string path="input.dat";
-    SimFileReader sfr(path);
+    SimFileReader sfr;
     StructuralInformationModel* sim = new StructuralInformationModel();
     sfr.ReadSim(sim);
 

@@ -12,6 +12,7 @@ class SimFileReader
 {
 public:
     SimFileReader(string filePath);
+    SimFileReader();
     ~SimFileReader();
 
     template <class Type>
@@ -25,10 +26,11 @@ public:
     string int2s(int n);
 
     void ReadSim(StructuralInformationModel* sim);
+    void ReadGeneralInfo(StructuralInformationModel* sim);
 
 
 private:
-    ifstream fin;
+    ifstream _fin;
 
 
 };
