@@ -76,7 +76,7 @@ void SimFileReader::ReadLayout(StructuralInformationModel* sim)
         Floor floor;
         fin>>floor.name>>floor.elevation;
         if(floor.name!="")
-            sim->si.layout->floors.push_back(floor);
+            sim->si.layout->floors.insert(make_pair(floor.name,floor));
     }
     fin.close();
 
@@ -87,7 +87,7 @@ void SimFileReader::ReadLayout(StructuralInformationModel* sim)
         Cline cline;
         fin>>cline.name>>cline.location[0]>>cline.location[1];
         if(cline.name!="")
-            sim->si.layout->clines.push_back(cline);
+            sim->si.layout->clines.insert(make_pair(cline.name,cline));
     }
     fin.close();
 

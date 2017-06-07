@@ -10,6 +10,7 @@ public:
     FrameSection();
     double depth=0.0;
     double width=0.0;
+    string material="";
     Rebar *longRebar=NULL;
     Rebar *transRebar=NULL;
 };

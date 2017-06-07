@@ -7,12 +7,14 @@ Layout::Layout()
 
 Json::Value Layout::toJson(){
     Json::Value j;
-    for(unsigned int i=0;i<floors.size();i++){
-        j["floors"].append(floors[i].toJson());
+    for(map<string,Floor>::iterator it=floors.begin(); it!=floors.end();it++)
+    {
+        j["floors"].append(it->second.toJson());
     }
 
-    for(unsigned int i=0;i<clines.size();i++){
-        j["clines"].append(clines[i].toJson());
+    for(map<string,Cline>::iterator it=clines.begin(); it!=clines.end();it++)
+    {
+        j["clines"].append(it->second.toJson());
     }
 
     return j;

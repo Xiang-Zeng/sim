@@ -10,8 +10,8 @@ public:
     Property();
     Json::Value toJson();
 
-    vector<Material> materials;
-    vector<FrameSection> framesections;
+    map<string,Material> materials;
+    map<string,FrameSection> framesections;
 };
 
 #endif // PROPERTY_H

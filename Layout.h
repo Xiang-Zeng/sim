@@ -10,8 +10,8 @@ public:
     Layout();
     Json::Value toJson();
 
-    vector <Floor> floors;
-    vector <Cline> clines;
+    map <string,Floor> floors;
+    map <string,Cline> clines;
 };
 
 #endif // LAYOUT_H

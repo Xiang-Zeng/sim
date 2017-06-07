@@ -13,9 +13,9 @@ class LinearComponent
 public:
     LinearComponent();
     string name="";
-    vector<Cline *> clines;
-    vector<Floor *> floors;
-    vector<Segment> segments;
+    vector<string> clines;
+    vector<string> floors;
+    map<string,Segment> segments;
 };
 
 #endif // LINEARCOMPONENT_H
