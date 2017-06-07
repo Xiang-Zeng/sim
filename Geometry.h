@@ -8,6 +8,7 @@ class Geometry
 {
 public:
     Geometry();
+    Json::Value toJson();
 
     vector<Column> columns;
     vector<Beam> beams;

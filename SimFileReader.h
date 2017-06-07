@@ -27,6 +27,7 @@ public:
 
     void ReadSim(StructuralInformationModel* sim);
     void ReadGeneralInfo(StructuralInformationModel* sim);
+    void ReadStructuralInfo(StructuralInformationModel* sim);
 
 
 private:

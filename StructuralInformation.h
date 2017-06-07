@@ -13,6 +13,7 @@ class StructuralInformation
 {
 public:
     StructuralInformation();
+    ~StructuralInformation();
     Json::Value toJson();
 
     string type="";

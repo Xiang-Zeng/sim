@@ -39,6 +39,7 @@ string SimFileReader::int2s(int n)
 void SimFileReader::ReadSim(StructuralInformationModel *sim)
 {
     ReadGeneralInfo(sim);
+    ReadStructuralInfo(sim);
 
 }
 
@@ -49,6 +50,16 @@ void SimFileReader::ReadGeneralInfo(StructuralInformationModel* sim)
     getline(fin,s);
     fin>>sim->gi.name>>sim->gi.revision>>sim->gi.type>>sim->gi.year
        >>sim->gi.location>>sim->gi.engineer>>sim->gi.DOI;
+
+    fin.close();
+}
+
+void SimFileReader::ReadStructuralInfo(StructuralInformationModel* sim)
+{
+    ifstream fin("StructuralInformation.txt");
+    string s="";
+    getline(fin,s);
+    fin>>sim->si.type>>sim->si.units->length>>sim->si.units->force>>sim->si.units->temperature;
 
     fin.close();
 }

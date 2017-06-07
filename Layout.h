@@ -8,6 +8,7 @@ class Layout
 {
 public:
     Layout();
+    Json::Value toJson();
 
     vector <Floor> floors;
     vector <Cline> clines;

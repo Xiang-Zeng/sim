@@ -8,6 +8,8 @@ class Property
 {
 public:
     Property();
+    Json::Value toJson();
+
     vector<Material> materials;
     vector<FrameSection> framesections;
 };
