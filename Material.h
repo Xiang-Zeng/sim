@@ -9,6 +9,8 @@ class Material
 {
 public:
     Material();
+    Json::Value toJson();
+
     string name="";
     string type="";
     double fpc=0.0;

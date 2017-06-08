@@ -3,6 +3,7 @@
 
 #include "Material.h"
 #include "FrameSection.h"
+#include "SlabSection.h"
 
 class Property
 {
@@ -12,6 +13,7 @@ public:
 
     map<string,Material> materials;
     map<string,FrameSection> framesections;
+    map<string,SlabSection> slabsections;
 };
 
 #endif // PROPERTY_H

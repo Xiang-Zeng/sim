@@ -63,6 +63,7 @@ void SimFileReader::ReadStructuralInfo(StructuralInformationModel* sim)
     fin.close();
 
     ReadLayout(sim);
+    ReadProperty(sim);
 
 }
 
@@ -93,6 +94,46 @@ void SimFileReader::ReadLayout(StructuralInformationModel* sim)
 
 }
 
+void SimFileReader::ReadProperty(StructuralInformationModel* sim)
+{
+    ifstream fin("materials.txt");
+    string s="";
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Material mat;
+        fin>>mat.name>>mat.type>>mat.fpc>>mat.rho>>mat.E>>mat.nu>>mat.fu>>mat.epsr>>mat.fy;
+        if(mat.name!="")
+            sim->si.property->materials.insert(make_pair(mat.name,mat));
+    }
+    fin.close();
+
+    fin.open("framesections.txt");
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        FrameSection fs;
+        fin>>fs.name>>fs.type>>fs.database>>fs.shape>>fs.material>>fs.top_flange_width
+           >>fs.top_flange_thickness>>fs.web_thickness>>fs.bottom_flange_width>>fs.bottom_flange_thickness
+           >>fs.fillet_radius>>fs.selfweight>>fs.depth>>fs.width>>fs.flange_thickness;
+        if(fs.name!="")
+            sim->si.property->framesections.insert(make_pair(fs.name,fs));
+    }
+    fin.close();
+
+    fin.open("slabsections.txt");
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        SlabSection slabs;
+        fin>>slabs.name>>slabs.type>>slabs.material>>slabs.thickness
+           >>slabs.longitudinal_rebar_material>>slabs.longitudinal_num_bars_depth;
+        if(slabs.name!="")
+            sim->si.property->slabsections.insert(make_pair(slabs.name,slabs));
+    }
+    fin.close();
+
+}
 
 
 

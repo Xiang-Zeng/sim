@@ -4,7 +4,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <StructuralInformationModel.h>
+#include "StructuralInformationModel.h"
+#include "SlabSection.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
     void ReadGeneralInfo(StructuralInformationModel* sim);
     void ReadStructuralInfo(StructuralInformationModel* sim);
     void ReadLayout(StructuralInformationModel* sim);
+    void ReadProperty(StructuralInformationModel* sim);
 
 private:
     ifstream _fin;
