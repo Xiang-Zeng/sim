@@ -64,6 +64,7 @@ void SimFileReader::ReadStructuralInfo(StructuralInformationModel* sim)
 
     ReadLayout(sim);
     ReadProperty(sim);
+    ReadGeometry(sim);
 
 }
 
@@ -135,5 +136,92 @@ void SimFileReader::ReadProperty(StructuralInformationModel* sim)
 
 }
 
+
+void SimFileReader::ReadGeometry(StructuralInformationModel* sim)
+{
+    ifstream fin("columns.txt");
+    string s="";
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Column column;
+        int nClines=0;
+        fin>>column.name>>nClines;
+        column.clines.resize(nClines);
+        for(int i=0;i<nClines;++i)
+        {
+            fin>>column.clines[i];
+        }
+        int nfloors=0;
+        fin>>nfloors;
+        column.floors.resize(nfloors);
+        for(int i=0;i<nfloors;++i)
+        {
+            fin>>column.floors[i];
+        }
+        int nSegments=0;
+        fin>>nSegments;
+        column.segments.resize(nSegments);
+        for(int i=0;i<nSegments;++i)
+        {
+            fin>>column.segments[i].section>>column.segments[i].ratio[0]>>column.segments[i].ratio[1]>>column.segments[i].angle;
+        }
+
+        if(column.name!="")
+            sim->si.geometry->columns.insert(make_pair(column.name,column));
+    }
+    fin.close();
+
+    fin.open("beams.txt");
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Beam beam;
+        int nClines=0;
+        fin>>beam.name>>nClines;
+        beam.clines.resize(nClines);
+        for(int i=0;i<nClines;++i)
+        {
+            fin>>beam.clines[i];
+        }
+        int nfloors=0;
+        fin>>nfloors;
+        beam.floors.resize(nfloors);
+        for(int i=0;i<nfloors;++i)
+        {
+            fin>>beam.floors[i];
+        }
+        int nSegments=0;
+        fin>>nSegments;
+        beam.segments.resize(nSegments);
+        for(int i=0;i<nSegments;++i)
+        {
+            fin>>beam.segments[i].section>>beam.segments[i].ratio[0]>>beam.segments[i].ratio[1]>>beam.segments[i].angle;
+        }
+
+        if(beam.name!="")
+            sim->si.geometry->beams.insert(make_pair(beam.name,beam));
+    }
+    fin.close();
+
+    fin.open("slabs.txt");
+    getline(fin,s);
+    while(!fin.eof())
+    {
+        Slab slab;
+        int nClines=0;
+        fin>>slab.name>>slab.floor>>slab.section>>nClines;
+        slab.clines.resize(nClines);
+        for(int i=0;i<nClines;++i)
+        {
+            fin>>slab.clines[i];
+        }
+
+        if(slab.name!="")
+            sim->si.geometry->slabs.insert(make_pair(slab.name,slab));
+    }
+    fin.close();
+
+}
 
 

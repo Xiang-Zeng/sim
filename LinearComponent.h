@@ -12,10 +12,12 @@ class LinearComponent
 {
 public:
     LinearComponent();
+    Json::Value toJson();
+
     string name="";
     vector<string> clines;
     vector<string> floors;
-    map<string,Segment> segments;
+    vector<Segment> segments;
 };
 
 #endif // LINEARCOMPONENT_H

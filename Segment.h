@@ -7,8 +7,9 @@ class Segment
 {
 public:
     Segment();
+    Json::Value toJson();
 
-    Section * section;
+    string section="";
     double ratio[2]={0.0,0.0};
     double angle=0.0;
 };

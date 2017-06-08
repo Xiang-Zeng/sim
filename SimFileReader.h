@@ -31,6 +31,7 @@ public:
     void ReadStructuralInfo(StructuralInformationModel* sim);
     void ReadLayout(StructuralInformationModel* sim);
     void ReadProperty(StructuralInformationModel* sim);
+    void ReadGeometry(StructuralInformationModel* sim);
 
 private:
     ifstream _fin;

@@ -9,6 +9,7 @@ class Section
 {
 public:
     Section();
+    Json::Value toJson();
 
     string name="";
     string type="";

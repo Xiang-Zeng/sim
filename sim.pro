@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     FrameSection.cpp \
     Rebar.cpp \
     Material.cpp \
-    SlabSection.cpp
+    SlabSection.cpp \
+    Slab.cpp
 
 HEADERS += \
     json/allocator.h \
@@ -59,4 +60,5 @@ HEADERS += \
     FrameSection.h \
     Rebar.h \
     Material.h \
-    SlabSection.h
+    SlabSection.h \
+    Slab.h

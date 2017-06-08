@@ -3,6 +3,7 @@
 
 #include "Column.h"
 #include "Beam.h"
+#include "Slab.h"
 
 class Geometry
 {
@@ -10,8 +11,11 @@ public:
     Geometry();
     Json::Value toJson();
 
-    vector<Column> columns;
-    vector<Beam> beams;
+    map<string,Column> columns;
+    map<string,Beam> beams;
+    map<string,Slab> slabs;
+
+
 
 };
 
